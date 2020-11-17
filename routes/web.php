@@ -2,10 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('layouts.login');
-});
-
 //User-Login
 Route::get('/login', [App\Http\Controllers\UserController::class, 'loginUser'])->name('loginUser');
 Route::post('/submit-login', [App\Http\Controllers\UserController::class, 'submitLoginUser'])->name('submitLoginUser');
@@ -17,6 +13,7 @@ Route::post('/submit-register', [App\Http\Controllers\UserController::class, 'su
 //User-Logout
 Route::get('/logout', [App\Http\Controllers\UserController::class, 'logoutUser'])->name('logoutUser');
 
+//Admin
 Route::middleware("adminLogin")->group(function(){
     //Admin-Dashboard
     Route::get('/dashboard', [App\Http\Controllers\AdminContoller::class, 'index'])->name('quanTri');
@@ -61,4 +58,7 @@ Route::middleware("adminLogin")->group(function(){
     Route::post('/dashboard/save-edit-brand/{id}', [App\Http\Controllers\ADBrandController::class, 'saveEditBrand'])->name('saveEditBrand');
     Route::get('/dashboard/delete-brand/{id}', [App\Http\Controllers\ADBrandController::class, 'deleteBrand'])->name('deleteBrand');
 });
+
+//User-Client
+Route::get('/', [\App\Http\Controllers\USHomeController::class, 'index'])->name('home');
 

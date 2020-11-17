@@ -36,7 +36,7 @@ class UserController extends Controller
                     return redirect()->route('quanTri');
                 }
                 else if($user->permission == 0){
-                    return view('layouts.client');
+                    return redirect()->route("home");
                 }
             }
             else{
