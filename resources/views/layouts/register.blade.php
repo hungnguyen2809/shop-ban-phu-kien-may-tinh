@@ -55,6 +55,8 @@
 					<input type="submit" value="Đăng ký" name="register">
 				</form>
 				<p>Đã có tài khoản<a href="{{route('loginUser')}}">Đăng nhập</a></p>
+				<br>
+				<p><a href="{{ route('home') }}">Quay lại Website</a></p>
 		</div>
 	</div>
 	<script src="{{asset('admin/js/bootstrap.js')}}"></script>

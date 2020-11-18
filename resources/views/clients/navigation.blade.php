@@ -2,7 +2,7 @@
   use App\Models\BrandModel;
   use App\Models\CategoryModel;
   $brands = BrandModel::all();
-  $categorys = CategoryModel::where('id_parent', '!=', 0)->orderBy('name')->get();
+  $categorys = CategoryModel::where('id_parent', '=', 0)->orderBy('name')->get();
 
   $numberPage = 13;
   $count = 0;
@@ -36,14 +36,14 @@
       <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav menu__list">
           <li class="active">
-            <a class="nav-stylehead" href="index.html">
-              Trang chủ
+            <a class="nav-stylehead" href="{{route('home')}}">
+              Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              Sản phẩm
+              Categorys
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu multi-column columns-3">
@@ -52,7 +52,7 @@
                   <ul class="multi-column-dropdown">
                     @foreach ($categoryLefts as $categoryLeft)
                     <li>
-                      <a href="{{URL::to($categoryLeft->alias.'/'.$categoryLeft->id)}}">{{$categoryLeft->name}}</a>
+                      <a href="{{ route('filterProducts', ["alias"=> $categoryLeft->alias, "id"=>$categoryLeft->id, "type"=>"c"]) }}">{{$categoryLeft->name}}</a>
                     </li>
                     @endforeach													
                   </ul>
@@ -61,7 +61,7 @@
                   <ul class="multi-column-dropdown">
                     @foreach ($categoryRights as $categoryRight)
                     <li>
-                      <a href="{{URL::to($categoryRight->alias.'/'.$categoryRight->id)}}">{{$categoryRight->name}}</a>
+                      <a href="{{route('filterProducts', ["alias"=> $categoryRight->alias, "id"=>$categoryRight->id, "type"=>"c"])}}">{{$categoryRight->name}}</a>
                     </li>
                     @endforeach		
                   </ul>
@@ -75,7 +75,7 @@
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              Thương hiệu
+              Brands
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu multi-column columns-3">
@@ -84,7 +84,7 @@
                   <ul class="multi-column-dropdown">
                     @foreach ($brands as $brand)
                     <li>
-                      <a href="{{URL::to($brand->alias.'/'.$brand->id)}}">{{ $brand->name }}</a>
+                      <a href="{{route('filterProducts', ["alias"=> $brand->alias, "id"=>$brand->id, "type"=>"b"])}}">{{ $brand->name }}</a>
                     </li>
                     @endforeach
                   </ul>
@@ -98,24 +98,24 @@
           </li>
           <li class="">
             <a class="nav-stylehead" href="faqs.html">
-              Chính sách
+              Policy
             </a>
           </li>
           <li class="dropdown">
             <a class="nav-stylehead dropdown-toggle" href="#" data-toggle="dropdown">
-              Kết nối
+              Connect US
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu agile_short_dropdown">
               <li>
                 <a href="icons.html">
-                  <i class="fab fa-facebook-square fa-lg" style="color: #0674E7"></i>
+                  <i class="fa fa-facebook-official" aria-hidden="true" style="color: #0674E7"></i>
                   Facebook
                 </a>
               </li>
               <li>
                 <a href="typography.html">
-                  <i class="fab fa-youtube fa-lg" style="color: #FF0000"></i>
+                  <i class="fa fa-youtube-play" aria-hidden="true" style="color: #FF0000"></i>
                   Youtube
                 </a>
               </li>
@@ -123,7 +123,7 @@
           </li>
           <li class="">
             <a class="nav-stylehead" href="contact.html">
-              Liên hệ
+              About US
             </a>
           </li>
         </ul>

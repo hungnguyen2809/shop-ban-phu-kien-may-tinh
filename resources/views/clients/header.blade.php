@@ -16,12 +16,35 @@
         <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
       </li>
       <li>
-        <a href="#" data-toggle="modal" data-target="#myModal1">
-          <span class="fa fa-unlock-alt" aria-hidden="true"></span>Đăng nhập</a>
+        {{-- <a href="#" data-toggle="modal" data-target="#myModal1">
+          <span class="fa fa-unlock-alt" aria-hidden="true"></span>Sign</a> --}}
+          @if (Auth::check())
+          <span>
+            <span class="fa fa-user" aria-hidden="true"></span>
+            {{ Auth::user()->name }}
+          </span>
+          @else
+            <a href="{{ route('loginUser') }}">
+              <span class="fa fa-unlock-alt" aria-hidden="true"></span>
+              Sign
+            </a>
+          @endif
       </li>
+      @if (Auth::check())
       <li>
-        <a href="#" data-toggle="modal" data-target="#myModal2">
-          <span class="fa fa-pencil-square-o" aria-hidden="true"></span>Đăng ký</a>
+          <a onclick="return confirm('Do you want to Signout ?')" href="{{ route('logoutUser') }}">
+            <span class="fa fa-sign-out" aria-hidden="true"></span>
+            Signout
+          </a>
+      </li>
+      @endif
+      <li>
+        {{-- <a href="#" data-toggle="modal" data-target="#myModal2">
+          <span class="fa fa-pencil-square-o" aria-hidden="true"></span>Signin</a> --}}
+          <a href="{{ route('registerUser') }}">
+            <span class="fa fa-unlock-alt" aria-hidden="true"></span>
+            Register
+          </a>
       </li>
       <li>
         <a href="#" class="w3view-cart btn btn-warning">

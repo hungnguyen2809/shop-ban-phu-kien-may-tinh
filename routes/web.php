@@ -62,3 +62,11 @@ Route::middleware("adminLogin")->group(function(){
 //User-Client
 Route::get('/', [\App\Http\Controllers\USHomeController::class, 'index'])->name('home');
 
+//DetailsProduct
+Route::get('/details-product/{id}', [\App\Http\Controllers\USHomeController::class, 'detailsProduct'])->name('detailsProduct');
+
+//Filter By Category or Brand
+// type = b -> brand, type = c -> category
+Route::get('/{type}/{alias}/{id}', [\App\Http\Controllers\USHomeController::class, 'filterProducts'])->name('filterProducts');
+
+

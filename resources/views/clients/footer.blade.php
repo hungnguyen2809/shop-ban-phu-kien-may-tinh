@@ -1,7 +1,13 @@
+<?php
+  use App\Models\CategoryModel;
+  $categorys = CategoryModel::where('id_parent', '=', 0)->get();
+
+?>
+
 <div class="container">
   <!-- footer first section -->
   <p class="footer-main">
-    <span>"Grocery Shoppy"</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+    <span>"Shop phụ kiện"</span> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
     magni dolores eos qui ratione voluptatem sequi nesciunt.Sed ut perspiciatis unde omnis iste natus error sit voluptatem
     accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
     beatae vitae dicta sunt explicabo.</p>
@@ -43,26 +49,13 @@
     <!-- footer categories -->
     <div class="col-sm-5 address-right">
       <div class="col-xs-12 footer-grids">
-        <h3>Danh sách sản phẩm</h3>
+        <h3>Categorys</h3>
         <ul>
+          @foreach ($categorys as $cate)
           <li>
-            <a href="product.html">Grocery</a>
-          </li>
-          <li>
-            <a href="product.html">Fruits</a>
-          </li>
-          <li>
-            <a href="product.html">Soft Drinks</a>
-          </li>
-          <li>
-            <a href="product2.html">Dishwashers</a>
-          </li>
-          <li>
-            <a href="product.html">Biscuits & Cookies</a>
-          </li>
-          <li>
-            <a href="product2.html">Baby Diapers</a>
-          </li>
+            <a href="{{URL::to($cate->alias.'/'.$cate->id)}}">{{ $cate->name }}</a>
+          </li>              
+          @endforeach
         </ul>
       </div>
       <div class="clearfix"></div>
@@ -71,7 +64,7 @@
     <!-- quick links -->
     <div class="col-sm-5 address-right">
       <div class="col-xs-6 footer-grids">
-        <h3>Liên kết nhanh</h3>
+        <h3>Qiucks Link</h3>
         <ul>
           <li>
             <a href="about.html">About Us</a>
@@ -94,7 +87,7 @@
         </ul>
       </div>
       <div class="col-xs-6 footer-grids">
-        <h3>Kết nối với chúng tôi</h3>
+        <h3>About US</h3>
         <ul>
           <li>
             <i class="fa fa-map-marker"></i> 123 Sebastian, USA.</li>
@@ -112,7 +105,7 @@
     <!-- //quick links -->
     <!-- social icons -->
     <div class="col-sm-2 footer-grids  w3l-socialmk">
-      <h3>Theo dõi chúng tôi</h3>
+      <h3>Follow US</h3>
       <div class="social">
         <ul>
           <li>
@@ -133,7 +126,7 @@
         </ul>
       </div>
       <div class="agileits_app-devices">
-        <h5>Tải về trên điện thoại</h5>
+        <h5>Dowload the App</h5>
         <a href="#">
           <img src="{{asset('client/images/1.png')}}" alt="">
         </a>
@@ -149,7 +142,7 @@
   <!-- //footer third section -->
     <!-- payment -->
     <div class="sub-some child-momu">
-      <h5>Phương thức thanh toán</h5>
+      <h5>Payment Method</h5>
       <ul>
         <li>
           <img src="{{asset('client/images/pay2.png')}}" alt="">
