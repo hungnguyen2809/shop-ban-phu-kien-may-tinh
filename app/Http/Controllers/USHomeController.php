@@ -12,28 +12,14 @@ class USHomeController extends Controller
 {
     public function index(){
         // $products = ProductModel::orderBy('price', 'desc')->get();
-        $products = ProductModel::all();
-        $rams = $this->getProductForCategory(1, $products);
-        $ssds = $this->getProductForCategory(2, $products);
-        $hhds = $this->getProductForCategory(5, $products);
-        $usbs = $this->getProductForCategory(10, $products);
-        $sdcards = $this->getProductForCategory(9, $products);
+        $rams = ProductModel::where('status', 1)->where('id_cate_parent', 1)->get();
+        $ssds = ProductModel::where('status', 1)->where('id_cate_parent', 2)->get();
+        $hhds = ProductModel::where('status', 1)->where('id_cate_parent', 5)->get();
+        $usbs = ProductModel::where('status', 1)->where('id_cate_parent', 10)->get();
+        $sdcards = ProductModel::where('status', 1)->where('id_cate_parent', 9)->get();
         
         
         return view("clients.home")->with(compact("rams", "ssds", "hhds", "usbs", "sdcards"));
-    }
-
-    private function getProductForCategory($idCategory, $products){
-        $idFinds = CategoryModel::where('status', 1)->where('id_parent', '=', $idCategory)->select('id')->get();
-        $productFinds = [];
-        foreach($products as $product){
-            foreach($idFinds as $idfind){
-                if($product->id_category == $idfind->id){
-                    array_push($productFinds, $product);
-                }
-            }
-        }
-        return $productFinds;
     }
 
     public function detailsProduct($id){
@@ -46,14 +32,13 @@ class USHomeController extends Controller
         $category = null;
         $brand = null;
         if($type == "b"){
-            $data = ProductModel::where('status', 1)->where('id_brand', '=', $id)->orderBy('price', 'desc')->get();
+            $data = ProductModel::where('status', 1)->where('id_brand', '=', $id)->orderBy('price', 'desc')->paginate(9);
             $brand = BrandModel::find($id);
 
             return view("clients.filter_product")->with(compact("data", "brand"));
         }
         else if($type == "c"){
-            $products = ProductModel::where('status', 1)->orderBy('price', 'desc')->get();
-            $data = $this->getProductForCategory($id, $products);
+            $data = ProductModel::where('status', 1)->where('id_cate_parent', '=', $id)->orderBy('price', 'desc')->paginate(9);
             $category = CategoryModel::find($id);
 
             return view("clients.filter_product")->with(compact("data", "category"));

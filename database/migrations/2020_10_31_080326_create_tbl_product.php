@@ -23,6 +23,7 @@ class CreateTblProduct extends Migration
             $table->decimal('price');
             $table->bigInteger('id_brand');
             $table->bigInteger('id_category');
+            $table->bigInteger('id_cate_parent');
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

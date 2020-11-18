@@ -53,7 +53,7 @@
         <ul>
           @foreach ($categorys as $cate)
           <li>
-            <a href="{{URL::to($cate->alias.'/'.$cate->id)}}">{{ $cate->name }}</a>
+            <a href="{{route('filterProducts', ["alias"=> $cate->alias, "id"=>$cate->id, "type"=>"c"])}}">{{ $cate->name }}</a>
           </li>              
           @endforeach
         </ul>
@@ -67,22 +67,22 @@
         <h3>Qiucks Link</h3>
         <ul>
           <li>
-            <a href="about.html">About Us</a>
+            <a href="#">About Us</a>
           </li>
           <li>
-            <a href="contact.html">Contact Us</a>
+            <a href="#">Contact Us</a>
           </li>
           <li>
-            <a href="help.html">Help</a>
+            <a href="#">Help</a>
           </li>
           <li>
-            <a href="faqs.html">Faqs</a>
+            <a href="#">Faqs</a>
           </li>
           <li>
-            <a href="terms.html">Terms of use</a>
+            <a href="#">Terms of use</a>
           </li>
           <li>
-            <a href="privacy.html">Privacy Policy</a>
+            <a href="#">Privacy Policy</a>
           </li>
         </ul>
       </div>
@@ -90,14 +90,14 @@
         <h3>About US</h3>
         <ul>
           <li>
-            <i class="fa fa-map-marker"></i> 123 Sebastian, USA.</li>
+            <i class="fa fa-map-marker"></i> 165 Cau Giay, Ha Noi, Viet Nam.</li>
           <li>
             <i class="fa fa-mobile"></i> 333 222 3333 </li>
           <li>
             <i class="fa fa-phone"></i> +222 11 4444 </li>
           <li>
             <i class="fa fa-envelope-o"></i>
-            <a href="mailto:example@mail.com"> mail@example.com</a>
+            <a href="mailto:example@mail.com">shopphukiensieure@gmail.com</a>
           </li>
         </ul>
       </div>

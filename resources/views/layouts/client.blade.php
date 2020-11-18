@@ -145,7 +145,8 @@
 	<!-- cart-js -->
 	<script src="{{asset('client/js/minicart.js')}}"></script>
 	<script>
-		paypalm.minicartk.render(); //use only unique class names other than paypalm.minicartk.Also Replace same class name in css and minicart.min.js
+		//use only unique class names other than paypalm.minicartk.Also Replace same class name in css and minicart.min.js
+		paypalm.minicartk.render(); 
 
 		paypalm.minicartk.cart.on('checkout', function (evt) {
 			var items = this.items(),

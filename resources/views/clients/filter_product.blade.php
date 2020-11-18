@@ -52,4 +52,7 @@
 	@endforeach
 	<div class="clearfix"></div>
 </div>
+<div style="margin: 10px;">
+	{!! $data->links() !!}
+</div>
 @endsection

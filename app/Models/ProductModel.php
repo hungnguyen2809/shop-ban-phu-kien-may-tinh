@@ -18,6 +18,7 @@ class ProductModel extends Model
         'price',
         'id_brand',
         'id_category',
+        'id_cate_parent',
         'status'
     ];
 }

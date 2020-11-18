@@ -61,6 +61,8 @@ class ADProductController extends Controller
 		$product['price'] = $data['price'];
 		$product['id_brand'] = $data['id_brand'];
 		$product['id_category'] = $data['id_category'];
+		$id_parent = CategoryModel::find($data['id_category']);
+		$product['id_cate_parent'] = $id_parent->id_parent;
 		$product['description'] = $data['description'];
 		$product['status'] = $data['status'];
 		$product["images"] = $data["images"]->store("images", "public");
@@ -117,6 +119,8 @@ class ADProductController extends Controller
 			$product['price'] = $data['price'];
 			$product['id_brand'] = $data['id_brand'];
 			$product['id_category'] = $data['id_category'];
+			$id_parent = CategoryModel::find($data['id_category']);
+			$product['id_cate_parent'] = $id_parent->id_parent;
 			$product['description'] = $data['description'];
 			$product['status'] = $data['status'];
 
@@ -131,6 +135,8 @@ class ADProductController extends Controller
 			$product['price'] = $data['price'];
 			$product['id_brand'] = $data['id_brand'];
 			$product['id_category'] = $data['id_category'];
+			$id_parent = CategoryModel::find($data['id_category']);
+			$product['id_cate_parent'] = $id_parent->id_parent;
 			$product['description'] = $data['description'];
 			$product['status'] = $data['status'];
 		}

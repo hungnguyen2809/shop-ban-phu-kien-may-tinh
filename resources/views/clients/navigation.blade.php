@@ -97,7 +97,7 @@
             </ul>
           </li>
           <li class="">
-            <a class="nav-stylehead" href="faqs.html">
+            <a class="nav-stylehead" href="#">
               Policy
             </a>
           </li>
@@ -108,13 +108,13 @@
             </a>
             <ul class="dropdown-menu agile_short_dropdown">
               <li>
-                <a href="icons.html">
+                <a href="www.fb.com">
                   <i class="fa fa-facebook-official" aria-hidden="true" style="color: #0674E7"></i>
                   Facebook
                 </a>
               </li>
               <li>
-                <a href="typography.html">
+                <a href="www.youtube.com">
                   <i class="fa fa-youtube-play" aria-hidden="true" style="color: #FF0000"></i>
                   Youtube
                 </a>
@@ -122,7 +122,7 @@
             </ul>
           </li>
           <li class="">
-            <a class="nav-stylehead" href="contact.html">
+            <a class="nav-stylehead" href="#">
               About US
             </a>
           </li>
