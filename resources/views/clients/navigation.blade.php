@@ -122,7 +122,7 @@
             </ul>
           </li>
           <li class="">
-            <a class="nav-stylehead" href="#">
+            <a class="nav-stylehead" href="{{ route('aboutUS') }}">
               About US
             </a>
           </li>

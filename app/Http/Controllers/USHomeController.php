@@ -125,4 +125,8 @@ class USHomeController extends Controller
     public function completePaymentCart(){
         return view("clients.complete_payment");
     }
+
+    public function aboutUS(){
+        return view("layouts.about");
+    }
 }

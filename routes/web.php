@@ -81,4 +81,5 @@ Route::get('/complete-payment', [\App\Http\Controllers\USHomeController::class, 
 //Search
 Route::get('/search', [\App\Http\Controllers\USHomeController::class, 'searchName'])->name('searchName');
 
-
+//About US
+Route::get('/about', [\App\Http\Controllers\USHomeController::class, 'aboutUS'])->name('aboutUS');
