@@ -6,6 +6,7 @@ use App\Models\BrandModel;
 use App\Models\CategoryModel;
 use App\Models\ProductModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class USHomeController extends Controller
@@ -43,5 +44,43 @@ class USHomeController extends Controller
 
             return view("clients.filter_product")->with(compact("data", "category"));
         }
+    }
+
+    public function paymentCart(Request $request){
+        $data = [];
+        for($i = 1; $i <= 5; $i++){
+            if(isset($request['quantity_'.$i]) || isset($request['shipping_'.$i])){
+                $product = ["id"=>$request['shipping_'.$i], "quantity"=>$request['quantity_'.$i]];
+                array_push($data, $product);
+            }
+        }
+        $products = [];
+        foreach($data as $item){
+            $products[] = ProductModel::find($item['id']); 
+        }
+
+        return view('clients.payment')->with(compact('products', 'data'));
+    }
+
+    public function submitPaymentCart(Request $request){
+        $products = [];
+        $user = [];
+
+        foreach($request['data'] as $item){
+            $products[] = ProductModel::find($item['id']); 
+        }
+
+        if(Auth::check()){
+            $user['id'] = Auth::user()->id;
+        }
+        else $user['id'] = -1;
+
+        $user['name'] = $request['name'];
+        $user['email'] = $request['email'];
+        $user['phone'] = $request['phone'];
+        $user['address'] = $request['address'];
+        $user['note'] = $request['note'];
+
+        return dd($products);
     }
 }

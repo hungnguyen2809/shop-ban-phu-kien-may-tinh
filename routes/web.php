@@ -69,4 +69,5 @@ Route::get('/details-product/{id}', [\App\Http\Controllers\USHomeController::cla
 // type = b -> brand, type = c -> category
 Route::get('/{type}/{alias}/{id}', [\App\Http\Controllers\USHomeController::class, 'filterProducts'])->name('filterProducts');
 
-
+Route::post('/payment', [\App\Http\Controllers\USHomeController::class, 'paymentCart']);
+Route::post('/submit-payment', [\App\Http\Controllers\USHomeController::class, 'submitPaymentCart'])->name('submitPaymentCart');

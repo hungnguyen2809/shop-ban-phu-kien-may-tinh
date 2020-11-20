@@ -38,11 +38,12 @@
 							<fieldset>
 								<input type="hidden" name="cmd" value="_cart" />
 								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="business" value=" " />
-								<input type="hidden" name="item_name" value="Almonds, 100g" />
-								<input type="hidden" name="amount" value="149.00" />
-								<input type="hidden" name="discount_amount" value="1.00" />
-								<input type="hidden" name="currency_code" value="USD" />
+								<input type="hidden" name="business" value="" />
+								<input type="hidden" name="shipping" value="{{ $ram->id }}" />
+								<input type="hidden" name="item_name" value="{{ $ram->name }}" />
+								<input type="hidden" name="amount" value="{{ $ram->price }}" />
+								<input type="hidden" name="discount_amount" value="0" />
+								<input type="hidden" name="currency_code" value="VND" />
 								<input type="hidden" name="return" value=" " />
 								<input type="hidden" name="cancel_return" value=" " />
 								<input type="submit" name="submit" value="Add to cart" class="button" />
@@ -92,11 +93,12 @@
 							<fieldset>
 								<input type="hidden" name="cmd" value="_cart" />
 								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="business" value=" " />
-								<input type="hidden" name="item_name" value="Almonds, 100g" />
-								<input type="hidden" name="amount" value="149.00" />
-								<input type="hidden" name="discount_amount" value="1.00" />
-								<input type="hidden" name="currency_code" value="USD" />
+								<input type="hidden" name="business" value="" />
+								<input type="hidden" name="shipping" value="{{ $ssd->id }}" />
+								<input type="hidden" name="item_name" value="{{ $ssd->name }}" />
+								<input type="hidden" name="amount" value="{{ $ssd->price }}" />
+								<input type="hidden" name="discount_amount" value="0" />
+								<input type="hidden" name="currency_code" value="VND" />
 								<input type="hidden" name="return" value=" " />
 								<input type="hidden" name="cancel_return" value=" " />
 								<input type="submit" name="submit" value="Add to cart" class="button" />
@@ -146,11 +148,12 @@
 							<fieldset>
 								<input type="hidden" name="cmd" value="_cart" />
 								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="business" value=" " />
-								<input type="hidden" name="item_name" value="Almonds, 100g" />
-								<input type="hidden" name="amount" value="149.00" />
-								<input type="hidden" name="discount_amount" value="1.00" />
-								<input type="hidden" name="currency_code" value="USD" />
+								<input type="hidden" name="business" value="" />
+								<input type="hidden" name="shipping" value="{{ $hhd->id }}" />
+								<input type="hidden" name="item_name" value="{{ $hhd->name }}" />
+								<input type="hidden" name="amount" value="{{ $hhd->price }}" />
+								<input type="hidden" name="discount_amount" value="0" />
+								<input type="hidden" name="currency_code" value="VND" />
 								<input type="hidden" name="return" value=" " />
 								<input type="hidden" name="cancel_return" value=" " />
 								<input type="submit" name="submit" value="Add to cart" class="button" />
@@ -200,11 +203,12 @@
 							<fieldset>
 								<input type="hidden" name="cmd" value="_cart" />
 								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="business" value=" " />
-								<input type="hidden" name="item_name" value="Almonds, 100g" />
-								<input type="hidden" name="amount" value="149.00" />
-								<input type="hidden" name="discount_amount" value="1.00" />
-								<input type="hidden" name="currency_code" value="USD" />
+								<input type="hidden" name="business" value="" />
+								<input type="hidden" name="shipping" value="{{ $usb->id }}" />
+								<input type="hidden" name="item_name" value="{{ $usb->name }}" />
+								<input type="hidden" name="amount" value="{{ $usb->price }}" />
+								<input type="hidden" name="discount_amount" value="0" />
+								<input type="hidden" name="currency_code" value="VND" />
 								<input type="hidden" name="return" value=" " />
 								<input type="hidden" name="cancel_return" value=" " />
 								<input type="submit" name="submit" value="Add to cart" class="button" />
@@ -254,11 +258,12 @@
 							<fieldset>
 								<input type="hidden" name="cmd" value="_cart" />
 								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="business" value=" " />
-								<input type="hidden" name="item_name" value="Almonds, 100g" />
-								<input type="hidden" name="amount" value="149.00" />
-								<input type="hidden" name="discount_amount" value="1.00" />
-								<input type="hidden" name="currency_code" value="USD" />
+								<input type="hidden" name="business" value="" />
+								<input type="hidden" name="shipping" value="{{ $sdcard->id }}">
+								<input type="hidden" name="item_name" value="{{ $sdcard->name }}" />
+								<input type="hidden" name="amount" value="{{ $sdcard->price }}" />
+								<input type="hidden" name="discount_amount" value="0" />
+								<input type="hidden" name="currency_code" value="VND" />
 								<input type="hidden" name="return" value=" " />
 								<input type="hidden" name="cancel_return" value=" " />
 								<input type="submit" name="submit" value="Add to cart" class="button" />

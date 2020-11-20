@@ -47,9 +47,16 @@
           </a>
       </li>
       <li>
-        <a href="#" class="w3view-cart btn btn-warning">
-          <i class="fa fa-cart-arrow-down fa-2x" style="color: #ffffff"></i>
-        </a>
+        <div class="wthreecartaits wthreecartaits2 cart cart box_1">
+          <form action="#" method="post" class="last">
+            <input id="get-token" type="hidden" name="_token" value="{{csrf_token()}}">
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="display" value="1">
+            <button class="w3view-cart" type="submit" name="submit" value="">
+              <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
       </li>
     </ul>
     <!-- //header lists -->
