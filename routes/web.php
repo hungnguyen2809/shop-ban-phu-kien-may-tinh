@@ -34,6 +34,10 @@ Route::middleware("adminLogin")->group(function(){
     Route::post('/dashboard/save-edit-product/{id}', [App\Http\Controllers\ADProductController::class, 'saveEditProduct'])->name('saveEditProduct');
     Route::get('/dashboard/delete-product/{id}', [App\Http\Controllers\ADProductController::class, 'deleteProduct'])->name('deleteProduct');
 
+    //Orders
+    Route::get('/dashboard/orders', [App\Http\Controllers\OrderControler::class, 'index'])->name('showOrders');
+    Route::get('/dashboard/orders-details/{id}', [App\Http\Controllers\OrderControler::class, 'showOrderDetails'])->name('showOrderDetails');
+
     //Admin-Category
     Route::get('/dashboard/categorys', [App\Http\Controllers\ADCategoryController::class, 'index'])->name('showCategorys');
     Route::get('/dashboard/add-category', [App\Http\Controllers\ADCategoryController::class, 'addCategory'])->name('addCategory');
@@ -69,6 +73,12 @@ Route::get('/details-product/{id}', [\App\Http\Controllers\USHomeController::cla
 // type = b -> brand, type = c -> category
 Route::get('/{type}/{alias}/{id}', [\App\Http\Controllers\USHomeController::class, 'filterProducts'])->name('filterProducts');
 
+//Payment
 Route::post('/payment', [\App\Http\Controllers\USHomeController::class, 'paymentCart']);
 Route::post('/submit-payment', [\App\Http\Controllers\USHomeController::class, 'submitPaymentCart'])->name('submitPaymentCart');
 Route::get('/complete-payment', [\App\Http\Controllers\USHomeController::class, 'completePaymentCart'])->name('completePaymentCart');
+
+//Search
+Route::get('/search', [\App\Http\Controllers\USHomeController::class, 'searchName'])->name('searchName');
+
+

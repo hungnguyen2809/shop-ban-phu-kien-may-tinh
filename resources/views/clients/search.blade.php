@@ -4,14 +4,10 @@
 @section('content')
 <div class="product-sec1">
 	<h3 class="heading-tittle">
-		@if (isset($brand))
-			{{ $brand->name }}
-		@endif
-		@if (isset($category))
-			{{ $category->name }}
-		@endif
-	</h3>
-	@foreach ($data as $item)		
+		Search by: {{ $key }}
+  </h3>
+  <br>
+	@foreach ($products as $item)		
 	<div class="col-md-4 product-men">
 		<div class="men-pro-item simpleCart_shelfItem">
 			<div class="men-thumb-item">
@@ -53,6 +49,6 @@
 	<div class="clearfix"></div>
 </div>
 <div style="margin: 10px;">
-	{!! $data->links() !!}
+	{!! $products->links() !!}
 </div>
 @endsection

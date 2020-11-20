@@ -1,8 +1,8 @@
 <div class="side-bar col-md-3">
   <div class="search-hotel">
     <h3 class="agileits-sear-head">Search name</h3>
-    <form action="#" method="GET">
-      <input type="search" placeholder="Name product..." name="search" required="">
+    <form action="{{ route('searchName') }}" method="GET">
+      <input type="search" placeholder="Name product..." name="key">
       <input type="submit" value=" ">
     </form>
   </div>

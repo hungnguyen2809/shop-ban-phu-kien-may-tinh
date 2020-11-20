@@ -36,7 +36,7 @@
 			</div>
 			<div class="col-md-8 market-update-left">
 				<h4>Số đơn hàng</h4>
-				<h3>1,500</h3>
+				<h3>{{ count($orders) }}</h3>
 			</div>
 		<div class="clearfix"> </div>
 		</div>

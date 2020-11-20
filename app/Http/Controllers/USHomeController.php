@@ -10,7 +10,6 @@ use App\Models\ProductModel;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class USHomeController extends Controller
 {
@@ -24,6 +23,18 @@ class USHomeController extends Controller
         
         
         return view("clients.home")->with(compact("rams", "ssds", "hhds", "usbs", "sdcards"));
+    }
+
+    public function searchName(){
+        $key = "";
+        if(isset($_GET['key'])){
+            $key = $_GET['key'];
+            $products = ProductModel::where('status', 1)->where('name', 'like', "%$key%")->paginate(10);
+            return view("clients.search")->with(compact("products", "key"));
+        }
+        if($key == ""){
+            return redirect()->route("home");
+        }
     }
 
     public function detailsProduct($id){

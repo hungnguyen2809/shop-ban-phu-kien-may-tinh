@@ -79,8 +79,8 @@
 							>
 						</div>
 						<div class="controls">
-							<input type="text" placeholder="Email" name="email" required="" 
-							{{ Auth::check() ? Auth::user()->email : '' }}>
+							<input type="email" placeholder="Email" name="email" required="" 
+							value="{{ Auth::check() ? Auth::user()->email : '' }}" >
 						</div>
 						<div class="w3_agileits_card_number_grids">
 							<div class="w3_agileits_card_number_grid_left">

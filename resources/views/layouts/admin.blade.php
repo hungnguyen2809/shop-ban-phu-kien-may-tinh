@@ -139,9 +139,9 @@
 						</ul>
 					</li>
 					<li>
-						<a href="fontawesome.html">
-							<i class="fa fa-bullhorn"></i>
-							<span>Font awesome </span>
+						<a href="{{ route('showOrders') }}">
+							<i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+							<span>Xem đơn hàng</span>
 						</a>
 					</li>
 				</ul>           

@@ -2,7 +2,7 @@
   <!-- header-bot-->
   <div class="col-md-4 logo_agile">
     <h1>
-      <a href="index.html">
+      <a href="/">
         <span>P</span>hụ kiện siêu rẻ
         <img src="{{asset('client/images/logo2.png')}}" alt=" ">
       </a>

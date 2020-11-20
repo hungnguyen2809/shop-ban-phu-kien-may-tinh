@@ -22,7 +22,21 @@
 				<h3>{{session("error")}}</h3>
 			</div>
 		@endif
-		
+	</div>
+	<div style="display: flex; align-items: center; justify-content: center; margin: 50px">
+		<button onclick="removeCart()" class="btn btn-success">Go to Home</button>
 	</div>
 </section>
+<script>
+	function removeCart(){
+		if(confirm("Do you want to delete products in Cart ?")){
+			localStorage.removeItem("PPminicartk");
+			location.href = '/';
+		}
+		else{
+			location.href = '/';
+		}
+	}
+</script>
+
 @endsection

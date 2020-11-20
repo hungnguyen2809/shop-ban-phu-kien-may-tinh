@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OrdersModel;
 use App\Models\ProductModel;
 use App\Models\User;
 use Exception;
@@ -12,7 +13,8 @@ class AdminContoller extends Controller
     public function index(){
         $products = ProductModel::all();
         $users = User::all();
-        return view('admins.dashboard')->with(compact("products", "users"));
+        $orders = OrdersModel::all();
+        return view('admins.dashboard')->with(compact("products", "users", "orders"));
     }
 
     public function showUsers(){
