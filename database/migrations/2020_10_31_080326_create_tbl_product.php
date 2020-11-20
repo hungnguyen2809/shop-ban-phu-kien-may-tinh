@@ -20,7 +20,7 @@ class CreateTblProduct extends Migration
             $table->string('images');
             $table->text('description');
             $table->integer('quantity');
-            $table->decimal('price');
+            $table->decimal('price', 18, 2);
             $table->bigInteger('id_brand');
             $table->bigInteger('id_category');
             $table->bigInteger('id_cate_parent');

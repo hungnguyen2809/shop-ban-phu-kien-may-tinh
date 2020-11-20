@@ -18,7 +18,7 @@ class CreateTblOrderDetails extends Migration
             $table->bigInteger('id_order');
             $table->bigInteger('id_product');
             $table->integer('quantity');
-            $table->decimal('price');
+            $table->decimal('price', 18, 2);
             $table->string('service_code');
             $table->integer('sale');
             $table->integer('warranty_preiod');

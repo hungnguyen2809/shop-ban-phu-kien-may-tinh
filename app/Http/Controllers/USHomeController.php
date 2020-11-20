@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\BrandModel;
 use App\Models\CategoryModel;
+use App\Models\OrderDetailsModel;
+use App\Models\OrdersModel;
 use App\Models\ProductModel;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -64,23 +67,51 @@ class USHomeController extends Controller
 
     public function submitPaymentCart(Request $request){
         $products = [];
-        $user = [];
+        $order = new OrdersModel();
 
         foreach($request['data'] as $item){
             $products[] = ProductModel::find($item['id']); 
         }
 
         if(Auth::check()){
-            $user['id'] = Auth::user()->id;
+            $order['id_user'] = Auth::user()->id;
         }
-        else $user['id'] = -1;
+        else $order['id_user'] = -1;
 
-        $user['name'] = $request['name'];
-        $user['email'] = $request['email'];
-        $user['phone'] = $request['phone'];
-        $user['address'] = $request['address'];
-        $user['note'] = $request['note'];
+        $order['name'] = $request['name'];
+        $order['email'] = $request['email'];
+        $order['phone'] = $request['phone'];
+        $order['address'] = $request['address'];
+        $order['note'] = $request['note'];
+        $order['status'] = 1;
 
-        return dd($products);
+        try{
+            $order->save();
+            foreach($products as $product){
+                foreach($request['data'] as $item){
+                    if($product['id'] == $item['id']){
+                        $orderDetails = new OrderDetailsModel();
+
+                        $orderDetails['id_order'] =  $order->id;
+                        $orderDetails['id_product'] =  $product->id;
+                        $orderDetails['quantity'] =  $item['quantity'];
+                        $orderDetails['price'] =  $product->price;
+                        $orderDetails['service_code'] =  "ABC01";
+                        $orderDetails['sale'] =  0;
+                        $orderDetails['warranty_preiod'] =  24;
+                        
+                        $orderDetails->save();
+                    }
+                }
+            }
+            return redirect()->route('completePaymentCart')->with("success", "Đặt hàng thành công !");
+        }
+        catch(Exception $ex){
+            return redirect()->route('completePaymentCart')->with("error", "Đặt hàng thất bại ! Vui lòng thử lại sau !");
+        }
+    }
+
+    public function completePaymentCart(){
+        return view("clients.complete_payment");
     }
 }

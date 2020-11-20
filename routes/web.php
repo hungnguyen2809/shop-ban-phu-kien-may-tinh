@@ -71,3 +71,4 @@ Route::get('/{type}/{alias}/{id}', [\App\Http\Controllers\USHomeController::clas
 
 Route::post('/payment', [\App\Http\Controllers\USHomeController::class, 'paymentCart']);
 Route::post('/submit-payment', [\App\Http\Controllers\USHomeController::class, 'submitPaymentCart'])->name('submitPaymentCart');
+Route::get('/complete-payment', [\App\Http\Controllers\USHomeController::class, 'completePaymentCart'])->name('completePaymentCart');

@@ -18,7 +18,7 @@ class CreateTblDetailswh extends Migration
             $table->bigInteger('id_rw');
             $table->bigInteger('id_product');
             $table->integer('quantity');
-            $table->decimal('price');
+            $table->decimal('price', 18, 2);
             $table->string('service_code');
             $table->integer('warranty_preiod');
             $table->timestamps();
