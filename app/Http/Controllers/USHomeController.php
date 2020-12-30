@@ -15,11 +15,11 @@ class USHomeController extends Controller
 {
     public function index(){
         // $products = ProductModel::orderBy('price', 'desc')->get();
-        $rams = ProductModel::where('status', 1)->where('id_cate_parent', 1)->get();
-        $ssds = ProductModel::where('status', 1)->where('id_cate_parent', 2)->get();
-        $hhds = ProductModel::where('status', 1)->where('id_cate_parent', 5)->get();
-        $usbs = ProductModel::where('status', 1)->where('id_cate_parent', 10)->get();
-        $sdcards = ProductModel::where('status', 1)->where('id_cate_parent', 9)->get();
+        $rams = ProductModel::where('status', 1)->where('id_cate_parent', 1)->where('quantity', '>', 0)->get();
+        $ssds = ProductModel::where('status', 1)->where('id_cate_parent', 2)->where('quantity', '>', 0)->get();
+        $hhds = ProductModel::where('status', 1)->where('id_cate_parent', 5)->where('quantity', '>', 0)->get();
+        $usbs = ProductModel::where('status', 1)->where('id_cate_parent', 10)->where('quantity', '>', 0)->get();
+        $sdcards = ProductModel::where('status', 1)->where('id_cate_parent', 9)->where('quantity', '>', 0)->get();
         
         
         return view("clients.home")->with(compact("rams", "ssds", "hhds", "usbs", "sdcards"));
@@ -110,8 +110,11 @@ class USHomeController extends Controller
                         $orderDetails['service_code'] =  "ABC01";
                         $orderDetails['sale'] =  0;
                         $orderDetails['warranty_preiod'] =  24;
-                        
                         $orderDetails->save();
+
+                        $productUpdate = ProductModel::find($product->id);
+                        $productUpdate['quantity'] = $productUpdate['quantity'] - $item['quantity'];
+                        $productUpdate->save();
                     }
                 }
             }
