@@ -15,13 +15,14 @@ class OrderControler extends Controller
             $keystring = trim($_GET['keystring']);
         }
         if($keystring == ''){
-            $orders = OrdersModel::paginate(5);
+            $orders = OrdersModel::orderBy('created_at', 'desc')->paginate(5);
         }
         else{
             $orders = OrdersModel::where('name', 'like', "%$keystring%")
                                 ->orWhere('email', 'like', "%$keystring%")
                                 ->orWhere('phone', 'like', "%$keystring%")
                                 ->orWhere('address', 'like', "%$keystring%")
+                                ->orderBy('created_at', 'desc')
                                 ->paginate(5);
         }
         return view("admins.show_orders")->with(compact("orders"));
